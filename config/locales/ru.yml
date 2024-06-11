@@ -381,6 +381,7 @@ ru:
   field_start_date: Дата начала
   field_start_page: Стартовая страница
   field_status: Статус
+  field_story_points: Относительная сложность
   field_subject: Тема
   field_subproject: Подпроект
   field_summary: Краткое описание

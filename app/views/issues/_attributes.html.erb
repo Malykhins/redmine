@@ -90,6 +90,10 @@
 <% if @issue.safe_attribute?('done_ratio') && Issue.use_field_for_done_ratio? %>
 <p><%= f.select :done_ratio, ((0..10).to_a.collect {|r| ["#{r*10} %", r*10] }), :required => @issue.required_attribute?('done_ratio') %></p>
 <% end %>
+
+<% if @issue.safe_attribute?('story_points') %>
+  <p><%= f.number_field :story_points, :required => @issue.required_attribute?('story_points'), min: 0, max: 10, step: 1 %></p>
+<% end %>
 </div>
 </div>
 
