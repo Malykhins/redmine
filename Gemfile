@@ -15,6 +15,7 @@ gem 'i18n', '~> 1.14.1'
 gem 'rbpdf', '~> 1.21.3'
 gem 'addressable'
 gem 'rubyzip', '~> 2.3.0'
+gem 'chartkick', '~> 5.0.6'
 
 #  Ruby Standard Gems
 gem 'csv', '~> 3.2.6'
@@ -91,6 +92,7 @@ end
 group :development do
   gem 'listen', '~> 3.3'
   gem "yard"
+  gem "byebug"
 end
 
 group :test do

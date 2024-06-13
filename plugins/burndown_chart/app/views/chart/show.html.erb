@@ -1,0 +1,27 @@
+<h2>График Burndown для выбранного периода</h2>
+
+<%= form_tag(burndown_chart_path, method: :get) do %>
+	<div style="display: flex; align-items: center; justify-content: flex-start;">
+		<div style="margin-right: 20px;">
+			<%= label_tag :start_date, "Начальная дата:" %>
+			<%= date_field_tag :start_date, '', value: params[:start_date] %>
+		</div>
+		<div style="margin-right: 20px;">
+			<%= label_tag :end_date, "Конечная дата:" %>
+			<%= date_field_tag :end_date, '', value: params[:end_date] %>
+		</div>
+		<%= submit_tag "Построить график" %>
+	</div>
+<% end %>
+
+<div id="chart-container" style="width: 50%; height: 400px; margin-top: 20px;">
+	<%= line_chart [{ name: "Ideal Burndown", data: @ideal_burndown_data },
+									{ name: "Actual Burndown", data: @actual_burndown_data }],
+								 xtitle: "Date",
+								 ytitle: "Story points" %>
+</div>
+
+<% content_for :header_tags do %>
+	<%= javascript_include_tag 'vendors/chartkick', :plugin => 'burndown_chart' %>
+	<%= javascript_include_tag 'vendors/Chart.bundle.js', :plugin => 'burndown_chart' %>
+<% end %>
